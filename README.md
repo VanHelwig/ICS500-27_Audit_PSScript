@@ -25,4 +25,4 @@ External Device Events: Event ID 4656
 System Events
 System Reboot Events: Event IDs 1074, 6006, 6008
 
-This script saves output locally on the endpoint at C:\path\log_events.txt
+Current version only outputs Authentication events 
