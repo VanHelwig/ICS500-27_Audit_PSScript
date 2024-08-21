@@ -1,5 +1,5 @@
 # Define the output file path
-$outputFilePath = "C:\Path\File.txt"
+$outputFilePath = 'C:\OutFile.txt'
 
 # Define maximum number of events to retrieve
 $maxEvents = 100
@@ -35,28 +35,28 @@ $failedLogonEvents = Get-WinEvent -FilterHashtable $failedLogonFilter -MaxEvents
 $userInitiatedLogoffEvents = Get-WinEvent -FilterHashtable $userInitiatedLogoffFilter -MaxEvents $maxEvents
 
 # Write the logon events to the output file
-"Logon Events:" | Out-File -FilePath $outputFilePath -Append
+'Logon Events:' | Out-File -FilePath $outputFilePath -Append
 foreach ($event in $logonEvents) {
     $eventOutput = $event.TimeCreated.ToString() + " - " + $event.Properties[5].Value
     $eventOutput | Out-File -FilePath $outputFilePath -Append
 }
 
 # Write the logoff events to the output file
-"Logoff Events:" | Out-File -FilePath $outputFilePath -Append
+'Logoff Events:' | Out-File -FilePath $outputFilePath -Append
 foreach ($event in $logoffEvents) {
     $eventOutput = $event.TimeCreated.ToString() + " - " + $event.Properties[5].Value
     $eventOutput | Out-File -FilePath $outputFilePath -Append
 }
 
 # Write the failed logon events to the output file
-"Failed Logon Events:" | Out-File -FilePath $outputFilePath -Append
+'Failed Logon Events:' | Out-File -FilePath $outputFilePath -Append
 foreach ($event in $failedLogonEvents) {
     $eventOutput = $event.TimeCreated.ToString() + " - " + $event.Properties[5].Value
     $eventOutput | Out-File -FilePath $outputFilePath -Append
 }
 
 # Write the user-initiated logoff events to the output file
-"User-Initiated Logoff Events:" | Out-File -FilePath $outputFilePath -Append
+'User-Initiated Logoff Events:' | Out-File -FilePath $outputFilePath -Append
 foreach ($event in $userInitiatedLogoffEvents) {
     $eventOutput = $event.TimeCreated.ToString() + " - " + $event.Properties[5].Value
     $eventOutput | Out-File -FilePath $outputFilePath -Append
